@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Ejemplo_Clase3.web.Models.Personas>
+
+@{
+    ViewBag.Title = Ejemplo_Clase3.web.Recursos.Etiquetas.Personas_Titulo;
+}
+
+<h2>@Ejemplo_Clase3.web.Recursos.Etiquetas.Personas_Titulo</h2>
+
+<p>
+    @Html.ActionLink(Ejemplo_Clase3.web.Recursos.Etiquetas.Personas_BotonCrear, "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaNacimiento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaNacimiento)
+        </td>
+        <td>
+            @Html.ActionLink(Ejemplo_Clase3.web.Recursos.Etiquetas.Botones_Editar, "Edit", new { id=item.PersonaId }) |
+            @Html.ActionLink(Ejemplo_Clase3.web.Recursos.Etiquetas.Botones_Detalles, "Details", new { id=item.PersonaId }) |
+            @Html.ActionLink(Ejemplo_Clase3.web.Recursos.Etiquetas.Botones_Borrar, "Delete", new { id=item.PersonaId })
+        </td>
+    </tr>
+}
+
+</table>
